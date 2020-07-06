@@ -1,18 +1,18 @@
 ALGORITHM checkpoint algo
 VAR
-    str : STRING;
+    str : CHAR :="";
     len : INTEGER := 0;
     nbwords: INTEGER := 1;
     nbvowels : INTEGER := 0;
-    i : INTEGER :=0;
 BEGIN
-    Read(str);
-    WHILE (str[i]<>".") DO
+    
+    WHILE (str<>".") DO
+        Read(str);
         len:=len+1;
-        IF (str[i]=" ") THEN
+        IF (str=" ") THEN
             nbwords:=nbwords+1;
         END_IF
-        SWITCH (str[i]) DO
+        SWITCH (str) DO
             case "a" : nbvowels:=nbvowels+1; BREAK;
             case "e" : nbvowels:=nbvowels+1; BREAK;
             case "i" : nbvowels:=nbvowels+1; BREAK;
@@ -25,7 +25,7 @@ BEGIN
             case "U" : nbvowels:=nbvowels+1; BREAK;
             default : 
         END_SWITCH
-        i:=i+1;
+    
 
     END_WHILE
     Write(len);
